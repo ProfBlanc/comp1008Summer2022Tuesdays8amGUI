@@ -67,16 +67,13 @@ public class LoginController {
 
     @FXML
     void onRegisterClick(ActionEvent event) {
+        labelError.setVisible(false);
 
     try {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("register-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        Stage stage = new Stage();
-        stage.setTitle("Register Example");
-        stage.setScene(scene);
-        stage.show();
+        WindowChanger.open("register-view", "Register Example");
     }
     catch (Exception e){
+        labelError.setVisible(true);
         labelError.setText("Unable to load new window");
     }
 
